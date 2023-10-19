@@ -2,7 +2,7 @@ import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import MenuItem from './MenuItem';
 
-const MenuList = ({ menuItems, onAddToMenu, onRemoveFromMenu }) => {
+const MenuList = ({ menuItems }) => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -11,8 +11,6 @@ const MenuList = ({ menuItems, onAddToMenu, onRemoveFromMenu }) => {
         renderItem={({ item }) => (
           <MenuItem
             item={item}
-            onAddToMenu={onAddToMenu}
-            onRemoveFromMenu={onRemoveFromMenu}
           />
         )}
       />

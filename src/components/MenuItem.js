@@ -1,8 +1,14 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { getInfoPlate } from '../api/api';
 
-const MenuItem = ({ item, onAddToMenu, onRemoveFromMenu }) => {
-  const { name, image, description, isVegan, price } = item;
+const MenuItem = ({ item }) => {
+  const [InfoItem, setInfoItem] = useState([]);
+
+  useEffect(() => {
+    const info = getInfoPlate(item.id);
+    setInfoItem(info)
+  }, []);
 
   return (
     <View style={styles.container}>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import LoginForm from '../components/LoginForm';
 import MenuList from '../components/MenuList';
+import { getPlates } from '../api/api';
 
 const HomeScreen = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,11 +21,7 @@ const HomeScreen = () => {
     /*if (authToken) {*/
       // Aquí puedes realizar una llamada a la API para obtener los platos del menú.
       // Simulación de datos de menú (debes reemplazarlos con tu lógica real).
-      const mockMenuData = [
-        { id: 1, name: 'Plato 1', price: 10.99 },
-        { id: 2, name: 'Plato 2', price: 12.99 },
-        { id: 3, name: 'Plato 3', price: 8.99 },
-      ];
+      const mockMenuData = getPlates();
       setMenuItems(mockMenuData);
     /*}*/
   }, [authToken]);
@@ -34,21 +31,22 @@ const HomeScreen = () => {
     setIsLoggedIn(false);
     setMenuItems([]);
   };
-
+/*{isLoggedIn ? ( */
   return (
     <View style={styles.container}>
-      {isLoggedIn ? (
+      
         <>
           <Text style={styles.title}>Menú del Hotel</Text>
           <Button title="Cerrar Sesión" onPress={handleLogout} />
           <MenuList menuItems={menuItems} />
         </>
-      ) : (
-        <LoginForm onLogin={handleLogin} />
-      )}
+      
     </View>
   );
 };
+/* ) : (
+        <LoginForm onLogin={handleLogin} />
+      )}*/
 
 const styles = StyleSheet.create({
   container: {

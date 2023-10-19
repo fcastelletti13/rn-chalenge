@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { AppProvider, useAppContext } from './src/context/AppContext.js';
-import axios from './src/api/axiosConfig.js';
 import LoginForm from './src/components/LoginForm';
 import HomeScreen from './src/screens/HomeScreen';
 import MenuScreen from './src/screens/MenuScreen';
